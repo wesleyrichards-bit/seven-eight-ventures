@@ -26,7 +26,7 @@
   /* ---------- Header ---------- */
   header{position:sticky;top:0;z-index:20;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
-  .logo{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:.32em;color:#f3eee6;white-space:nowrap}
+  .logo{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.32em;color:#f3eee6;white-space:nowrap}
   .nav ul{display:flex;gap:40px;list-style:none}
   .nav ul a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-dark);transition:color .2s}
   .nav ul a:hover{color:var(--gold-soft)}
@@ -97,7 +97,7 @@
   /* ---------- Footer ---------- */
   footer{background:var(--navy);color:#f3eee6;padding:90px 0 50px}
   .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:60px}
-  .fgrid .logo{font-size:30px}
+  .fgrid .logo{font-size:24px}
   .fgrid p{color:var(--muted-dark);font-size:17px;margin-top:30px;max-width:400px}
   .mail{display:inline-block;margin-top:30px;color:var(--gold-soft);font-size:17px;font-weight:400;border-bottom:1px solid rgba(201,169,110,.3);padding-bottom:4px}
   .fcol h5{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.25;margin:26px 0 16px}
@@ -116,7 +116,8 @@
   @media (max-width:720px){
     .wrap{padding:0 22px}
     .nav ul{display:none}
-    .logo{font-size:19px;letter-spacing:.26em}
+    .logo{font-size:16px;letter-spacing:.26em}
+    .fgrid .logo{font-size:20px}
     .hero{padding:80px 0 90px}
     section.block{padding:80px 0}
     .cats,.opps,.fgrid{grid-template-columns:1fr}
