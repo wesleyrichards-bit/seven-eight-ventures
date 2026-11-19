@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seven Eight Ventures</title>
+<meta name="description" content="Seven Eight Ventures: access to select private-market opportunities for eligible clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#08121f; --navy-2:#0d1a2b;
+    --ivory:#f3eee6; --card:#ece4d8; --line:#d9cdbb;
+    --gold:#b8955a; --gold-soft:#c9a96e;
+    --ink:#1a1a1a; --muted:#6b645b; --muted-dark:#a7adb7;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", system-ui, -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--ivory);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:20;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .logo{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:.32em;color:#f3eee6;white-space:nowrap}
+  .nav ul{display:flex;gap:40px;list-style:none}
+  .nav ul a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-dark);transition:color .2s}
+  .nav ul a:hover{color:var(--gold-soft)}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--navy);color:#f3eee6;padding:120px 0 130px}
+  .eyebrow{font-size:12px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.4vw,72px);line-height:1.1;max-width:900px;margin:28px 0 30px}
+  .hero p{font-size:19px;color:var(--muted-dark);max-width:620px}
+  .rule{width:56px;height:1px;background:var(--gold);margin:44px 0}
+  .link-gold{display:inline-flex;align-items:center;gap:12px;color:var(--gold-soft);font-size:17px;font-weight:400;transition:gap .2s}
+  .link-gold:hover{gap:18px}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:110px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+  .head h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.6vw,50px);line-height:1.15;margin-top:18px;max-width:640px}
+  .head p{color:var(--muted);max-width:440px;font-size:16px}
+
+  /* Category cards */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .cat{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:44px 44px 40px;min-height:380px;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
+  .cat:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(8,18,31,.07)}
+  .num{font-family:var(--serif);font-size:58px;line-height:1;color:var(--gold)}
+  .cat h3{font-family:var(--serif);font-weight:400;font-size:34px;margin:34px 0 16px}
+  .cat p{color:var(--muted);font-size:16px}
+  .explore{margin-top:auto;padding-top:36px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:inline-flex;gap:12px}
+  .cat:hover .explore{color:var(--gold)}
+  .cat.new .num::after{content:"New";font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:20px;padding:3px 10px;margin-left:16px;vertical-align:middle;position:relative;top:-14px}
+
+  /* Opportunity cards */
+  .opps-bg{background:#efe9df;border-top:1px solid var(--line)}
+  .opps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .opp{background:var(--ivory);border:1px solid var(--line);border-radius:3px;padding:40px;display:flex;flex-direction:column;scroll-margin-top:110px}
+  .opp .eyebrow{font-size:11px;letter-spacing:.16em}
+  .opp h3{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.05;margin:16px 0 22px}
+  .opp .short{width:46px;height:1px;background:var(--gold);opacity:.7;margin-bottom:22px}
+  .opp p{color:#4a463f;font-size:16px}
+  .opp .note{color:var(--muted);font-size:14.5px;border-top:1px solid var(--line);padding-top:20px;margin-top:24px}
+  .stats{display:flex;align-items:flex-start;gap:10px;margin:26px 0 6px}
+  .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1;white-space:nowrap}
+  .stat small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .arrow{color:var(--gold);font-size:20px;padding-top:2px}
+  .big{font-family:var(--serif);font-size:64px;line-height:1;margin:28px 0 6px}
+  .sub{color:var(--muted);font-size:15px}
+  .ticks{list-style:none;margin-top:22px}
+  .ticks li{color:#4a463f;font-size:15.5px;padding:5px 0;display:flex;gap:14px;align-items:center}
+  .ticks li::before{content:"";width:16px;height:1px;background:var(--gold)}
+  .disc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+  .opp .cta{margin-top:auto;padding-top:30px}
+  .opp .cta a{display:inline-flex;align-items:center;gap:12px;color:#9a7a43;font-size:15px;font-weight:400;border-bottom:1px solid rgba(184,149,90,.35);padding-bottom:4px;transition:gap .2s}
+  .opp .cta a:hover{gap:18px;border-color:var(--gold)}
+  .opp.feature{background:var(--navy);border-color:var(--navy);color:#f3eee6}
+  .opp.feature p,.opp.feature .ticks li{color:#c8ccd3}
+  .opp.feature .note{color:var(--muted-dark);border-color:rgba(255,255,255,.1)}
+  .opp.feature .cta a{color:var(--gold-soft)}
+
+  .fine{font-size:13px;color:var(--muted);margin-top:44px;max-width:860px}
+
+  /* Approach */
+  .approach{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .steps{border-top:1px solid var(--line)}
+  .step{display:grid;grid-template-columns:70px 1fr;padding:26px 0;border-bottom:1px solid var(--line)}
+  .step span{font-family:var(--serif);font-size:30px;color:var(--gold);line-height:1}
+  .step h4{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15.5px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:#f3eee6;padding:90px 0 50px}
+  .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:60px}
+  .fgrid .logo{font-size:30px}
+  .fgrid p{color:var(--muted-dark);font-size:17px;margin-top:30px;max-width:400px}
+  .mail{display:inline-block;margin-top:30px;color:var(--gold-soft);font-size:17px;font-weight:400;border-bottom:1px solid rgba(201,169,110,.3);padding-bottom:4px}
+  .fcol h5{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.25;margin:26px 0 16px}
+  .fcol p{font-size:16px;margin-top:0}
+  .fcol .link-gold{margin-top:26px}
+  .base{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-top:80px;padding-top:30px;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#7d8592}
+  .base p{max-width:760px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1060px){
+    .cats,.opps{grid-template-columns:repeat(2,1fr)}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .fgrid > div:first-child{grid-column:1/-1}
+    .approach{grid-template-columns:1fr;gap:40px}
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 22px}
+    .nav ul{display:none}
+    .logo{font-size:19px;letter-spacing:.26em}
+    .hero{padding:80px 0 90px}
+    section.block{padding:80px 0}
+    .cats,.opps,.fgrid{grid-template-columns:1fr}
+    .cat{min-height:0;padding:36px 30px}
+    .opp{padding:32px 28px}
+    .opp h3{font-size:40px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Seven Eight Ventures home">SEVEN EIGHT VENTURES</a>
+    <ul>
+      <li><a href="#categories">Opportunities</a></li>
+      <li><a href="#selected">Selected</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Private Opportunities</div>
+    <h1>Access to select private-market opportunities for eligible clients.</h1>
+    <p>Selective access beyond the public markets, sourced through our research network across India, ASEAN and beyond.</p>
+    <div class="rule"></div>
+    <a class="link-gold" href="#categories">View opportunities <span>&rarr;</span></a>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="block" id="categories">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Where we look</div>
+        <h2>Six routes to private-market access.</h2>
+      </div>
+      <p>Each opportunity is reviewed individually. Select a category to see a representative example.</p>
+    </div>
+
+    <div class="cats">
+      <a class="cat" href="#coupang">
+        <div class="num">01</div>
+        <h3>Pre-IPO</h3>
+        <p>Private companies approaching the public markets.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+      <a class="cat" href="#l-catterton">
+        <div class="num">02</div>
+        <h3>Specialist Funds</h3>
+        <p>Highly focused private-market strategies where specialist access or expertise matters.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+      <a class="cat" href="#spacex">
+        <div class="num">03</div>
+        <h3>Network-Sourced</h3>
+        <p>Opportunities arising through long-standing relationships with founders, investors, companies and industry participants.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+      <a class="cat" href="#hotel-chocolat">
+        <div class="num">04</div>
+        <h3>Equity Raises</h3>
+        <p>Selected capital raises and placements in public or soon-to-be-public companies.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+      <a class="cat new" href="#indian-qips">
+        <div class="num">05</div>
+        <h3>Indian QIPs</h3>
+        <p>Qualified Institutional Placements by listed Indian companies raising growth capital.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+      <a class="cat new" href="#newt">
+        <div class="num">06</div>
+        <h3>Natural Capital</h3>
+        <p>High-integrity nature-based assets across carbon and nature markets.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Selected opportunities -->
+<section class="block opps-bg" id="selected">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Selected opportunities</div>
+        <h2>Examples from our investment network.</h2>
+      </div>
+      <p>Click through to learn more about each opportunity.</p>
+    </div>
+
+    <div class="opps">
+
+      <!-- Coupang -->
+      <article class="opp" id="coupang">
+        <div class="eyebrow">Pre-IPO Investment</div>
+        <h3>Coupang</h3>
+        <div class="short"></div>
+        <p>Seven Eight Asset accessed Coupang during its final private funding round before the company entered the public markets.</p>
+        <div class="stats">
+          <div class="stat"><b>~$9B</b><small>Entry</small></div>
+          <div class="arrow">&rarr;</div>
+          <div class="stat"><b>~$60B</b><small>IPO</small></div>
+          <div class="arrow">&rarr;</div>
+          <div class="stat"><b>&gt;$80B</b><small>First day</small></div>
+        </div>
+        <p class="sub" style="margin-top:14px">Subsequent market value approximately $25 billion, even at later lows.</p>
+        <p class="note">A private-market opportunity identified before one of Asia's leading digital businesses entered the public markets.</p>
+        <div class="cta"><a href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Learn more <span>&rarr;</span></a></div>
+      </article>
+
+      <!-- L Catterton -->
+      <article class="opp" id="l-catterton">
+        <div class="eyebrow">Specialist Private Equity</div>
+        <h3>L Catterton India</h3>
+        <div class="short"></div>
+        <p>Access to a specialist India-focused private-market strategy through the wider Seven Eight investment network.</p>
+        <ul class="ticks">
+          <li>Consumer expertise</li>
+          <li>Private-company access</li>
+          <li>India</li>
+          <li>Long-duration relationships</li>
+        </ul>
+        <p class="note">Specialist managers can provide access to businesses and sectors that are difficult to replicate through public markets alone.</p>
+        <div class="cta"><a href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Learn more <span>&rarr;</span></a></div>
+      </article>
+
+      <!-- SpaceX -->
+      <article class="opp" id="spacex">
+        <div class="eyebrow">Network-Sourced Private Investment</div>
+        <h3>SpaceX</h3>
+        <div class="short"></div>
+        <p>A private-market opportunity accessed through the investment network rather than through the public markets.</p>
+        <div class="big">~10&times;</div>
+        <div class="sub">in approximately two years</div>
+        <p class="note">An example of how long-standing relationships can occasionally create access to exceptional private businesses.</p>
+        <div class="disc">Historical outcome. Not indicative of future returns.</div>
+        <div class="cta"><a href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Learn more <span>&rarr;</span></a></div>
+      </article>
+
+      <!-- Hotel Chocolat -->
+      <article class="opp" id="hotel-chocolat">
+        <div class="eyebrow">Equity Raise</div>
+        <h3>Hotel Chocolat</h3>
+        <div class="short"></div>
+        <p>Participation in a company equity raise sourced through the wider investment network.</p>
+        <p class="note">Public-market capital raises can occasionally create opportunities to provide capital at moments when valuation, company quality and access align.</p>
+        <div class="cta"><a href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Learn more <span>&rarr;</span></a></div>
+      </article>
+
+      <!-- Indian QIPs -->
+      <article class="opp" id="indian-qips">
+        <div class="eyebrow">Qualified Institutional Placements</div>
+        <h3>Indian QIPs</h3>
+        <div class="short"></div>
+        <p>Selective participation in Qualified Institutional Placements, the route listed Indian companies use to raise capital quickly from institutional investors.</p>
+        <ul class="ticks">
+          <li>Listed Indian companies</li>
+          <li>Growth and balance-sheet capital</li>
+          <li>Institutional allocation</li>
+          <li>Research-led selection</li>
+        </ul>
+        <p class="note">India's capital markets offer a steady flow of placements. Our research network helps identify those where quality and pricing align.</p>
+        <div class="cta"><a href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Learn more <span>&rarr;</span></a></div>
+      </article>
+
+      <!-- Newt Natural Capital -->
+      <article class="opp feature" id="newt">
+        <div class="eyebrow">Natural Capital</div>
+        <h3>Newt Natural Capital</h3>
+        <div class="short"></div>
+        <p>A specialist natural capital firm advising developers, investors and corporates on credible, high-integrity nature-based assets.</p>
+        <ul class="ticks">
+          <li>Nature-based assets</li>
+          <li>Carbon &amp; nature markets</li>
+          <li>Integrity and measurable impact</li>
+          <li>School of Natural Capital</li>
+        </ul>
+        <p class="note">Natural capital is an emerging asset class where specialist expertise determines which projects can be trusted.</p>
+        <div class="cta"><a href="https://www.newtnaturalcapital.com/" target="_blank" rel="noopener">Visit Newt Natural Capital <span>&rarr;</span></a></div>
+      </article>
+
+    </div>
+
+    <p class="fine">Selected examples reflect historical opportunities accessed through our investment network. They do not indicate future returns, and past performance is not a guide to future performance. Opportunities are available to eligible investors only.</p>
+  </div>
+</section>
+
+<!-- Approach -->
+<section class="block" id="approach">
+  <div class="wrap approach">
+    <div>
+      <div class="eyebrow">Approach</div>
+      <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.6vw,50px);line-height:1.15;margin-top:18px">Research first. Access second.</h2>
+      <p style="color:var(--muted);margin-top:24px;max-width:460px">The same research discipline that underpins Seven Eight Asset's public-market work is applied to every private opportunity we present.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span>i</span><div><h4>Sourced</h4><p>Through founders, specialist managers and long-standing industry relationships.</p></div></div>
+      <div class="step"><span>ii</span><div><h4>Researched</h4><p>Assessed on business quality, valuation and the durability of the opportunity.</p></div></div>
+      <div class="step"><span>iii</span><div><h4>Presented</h4><p>Shared selectively with eligible clients, with full information on the terms.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo">SEVEN EIGHT VENTURES</div>
+        <p>Private-market opportunities from the Seven Eight investment network, for eligible clients.</p>
+        <a class="mail" href="mailto:enquiries@seveneightasset.com">enquiries@seveneightasset.com</a>
+      </div>
+      <div class="fcol">
+        <div class="eyebrow">Seven Eight Asset</div>
+        <h5>Exceptional public companies across India and ASEAN.</h5>
+        <p style="color:var(--muted-dark)">The investment manager behind Seven Eight Ventures.</p>
+        <a class="link-gold" href="https://www.seveneightasset.com/" target="_blank" rel="noopener">Visit Seven Eight Asset <span>&rarr;</span></a>
+      </div>
+      <div class="fcol">
+        <div class="eyebrow">Get in touch</div>
+        <h5>Register interest in a private opportunity.</h5>
+        <p style="color:var(--muted-dark)">Tell us which opportunities interest you and we will be in touch.</p>
+        <a class="link-gold" href="mailto:enquiries@seveneightasset.com?subject=Seven%20Eight%20Ventures%20enquiry">Make an enquiry <span>&rarr;</span></a>
+      </div>
+    </div>
+    <div class="base">
+      <p>Seven Eight Ventures presents private-market opportunities for eligible and professional investors only. Nothing on this site is an offer or solicitation. Capital is at risk.</p>
+      <p>&copy; <span id="yr">2026</span> Seven Eight Ventures</p>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
